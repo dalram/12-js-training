@@ -41,6 +41,11 @@ do {
         sukis=false;
     }
 } while (sukis);
+console.log('-------------------------------');
+while (number !== 5) {
+    number = rand(0, 10);
+    console.log(number);
+}
 
 // 9
 console.log('-------------------------------');
@@ -118,4 +123,41 @@ if ( skaiciukas % 2) {
     console.log('YE');
 } else {
     console.log('NO');
+}
+
+// 13
+console.log('-------------------------------');
+let number1;
+while (number !== number1) {
+    number = rand(0, 10);
+    number1 = rand(0, 10);
+    console.log(number, number1);
+}
+console.log('-------------------------------');
+// 14
+sukis = true;
+suma = 0;
+count = 0;
+while (count <= 100) {
+    number = rand(0, 10);
+    number1 = rand(0, 10);
+    console.log(number, number1);
+    suma = number + number1;
+    console.log(suma);
+    count += suma;
+    
+}
+console.log('-------------------------------');
+console.log(count);
+
+// 15
+console.log('-------------------------------');
+count = 0;
+while (count < 3) {
+    number = rand(0, 10);
+    number1 = rand(0, 10);
+    console.log(number, number1);
+    if (number % 2 !== 0 && number1 % 2 !==0) {
+        count++;
+    }
 }
