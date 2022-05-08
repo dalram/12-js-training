@@ -125,6 +125,98 @@ console.log(unevenCount); //e
 console.log('=====================================');
 console.log(count); //f
 
+// 9
+console.log('=====================================');
+// A
+let randNum;
+let inside = 0;
+let outside = 0;
+while (randNum !== 5) {
+    randNum = rand(5, 10);
+    inside++;
+    for (let i = 0; i < randNum; i++) {
+        outside++;
+    }
+}
+console.log(inside);
+console.log(outside);
+// B
+console.log('=====================================');
+let randNum1;
+let inside1 = 0;
+let outside1 = 0;
+let fivesCounter = 0;
+while (fivesCounter < 3) {
+    randNum1 = rand(5, 10);
+    inside1++;
+    for (let i = 0; i < randNum1; i++) {
+        outside1++;
+    }
+    if (randNum1 === 5) {
+        fivesCounter++;
+    }
+}
+console.log(inside1);
+console.log(outside1);
+
+// C ?????????????????
+console.log('=====================================');
+let randNum2;
+let inside2 = 0;
+let outside2 = 0;
+let fivesCounter1 = 0;
+let lastNum;
+let lastNumToLast = false;
+while (fivesCounter1 < 3) {
+    randNum2 = rand(5, 10);
+    console.log(randNum2);
+    inside2++;
+    for (let i = 0; i < randNum2; i++) {
+        outside2++;
+    }
+    if (randNum2 === 5 && lastNum === 5) {
+        fivesCounter1++;
+    } 
+    lastNum = randNum2;
+    
+}
+
+console.log('=====================================');
+console.log(inside2);
+console.log(outside2);
 
 
 
+
+console.log('=====================================');
+// 10
+let sumaPetras = 0;
+let sumaKazys = 0;
+let randNum3;
+let randNum4;
+suma = true;
+while (suma) {
+    randNum3 = rand(10, 20);
+    randNum4 = rand(5, 25);
+    sumaPetras += randNum3;
+    sumaKazys += randNum4;
+    console.log(sumaPetras);
+    console.log(sumaKazys);
+    if (randNum3 > randNum4) {
+        console.log(`Partija laimejo Petras su ${randNum3}, jo tasku suma ${sumaPetras}`);
+    } else if (randNum4 > randNum3) {
+        console.log(`Partija laimejo Kazys su ${randNum4}, jo tasku suma ${sumaKazys}`); 
+    } else {
+        console.log(`Partija baigesi lygiosiomis ${randNum3}, ${randNum4}. Petro tasku suma ${sumaPetras}, Kazio tasku suma ${sumaKazys}`);
+    }
+    if (sumaPetras >= 222 || sumaKazys >= 222) {
+        suma = false;
+    }
+}
+if (sumaPetras >= 222) {
+    console.log(`Petras laimejo zaidima.`);
+} else if (sumaKazys >= 222) {
+    console.log(`Kazys laimejo zaidima.`);
+} else if (sumaPetras >= 222 && sumaKazys >= 222) {
+    console.log(`Lygiosios`);
+}
