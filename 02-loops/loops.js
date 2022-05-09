@@ -203,9 +203,9 @@ while (suma) {
     console.log(sumaPetras);
     console.log(sumaKazys);
     if (randNum3 > randNum4) {
-        console.log(`Partija laimejo Petras su ${randNum3}, jo tasku suma ${sumaPetras}`);
+        console.log(`Partija laimejo Petras su ${randNum3}, jo tasku suma ${sumaPetras}. Kazio tasku suma ${sumaKazys}`);
     } else if (randNum4 > randNum3) {
-        console.log(`Partija laimejo Kazys su ${randNum4}, jo tasku suma ${sumaKazys}`); 
+        console.log(`Partija laimejo Kazys su ${randNum4}, jo tasku suma ${sumaKazys}. Petro tasku suma ${sumaPetras}`); 
     } else {
         console.log(`Partija baigesi lygiosiomis ${randNum3}, ${randNum4}. Petro tasku suma ${sumaPetras}, Kazio tasku suma ${sumaKazys}`);
     }
