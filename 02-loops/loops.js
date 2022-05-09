@@ -213,9 +213,9 @@ while (suma) {
         suma = false;
     }
 }
-if (sumaPetras >= 222) {
+if (sumaPetras >= 222 && sumaKazys < 222) {
     console.log(`Petras laimejo zaidima.`);
-} else if (sumaKazys >= 222) {
+} else if (sumaKazys >= 222 && sumaKazys < 222) {
     console.log(`Kazys laimejo zaidima.`);
 } else if (sumaPetras >= 222 && sumaKazys >= 222) {
     console.log(`Lygiosios`);
