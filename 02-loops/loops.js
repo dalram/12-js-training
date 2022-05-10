@@ -93,7 +93,7 @@ let didesniSkaiciai = 0;
 let didesniuSuma = 0;
 let evenCount = 0;
 let unevenCount = 0;
-while (sukis) {
+do {
     skaicius = rand(10, 25);
     console.log(skaicius);
     count++;
@@ -112,7 +112,7 @@ while (sukis) {
     if (skaicius < 12 && count > 20 ) { //f pridejau && count > 20
         sukis = false;
     }
-}
+} while (sukis)
 console.log('=====================================');
 console.log(count);
 console.log(suma); // iki c
@@ -146,7 +146,7 @@ let randNum1;
 let inside1 = 0;
 let outside1 = 0;
 let fivesCounter = 0;
-while (fivesCounter < 3) {
+ do {
     randNum1 = rand(5, 10);
     inside1++;
     for (let i = 0; i < randNum1; i++) {
@@ -155,7 +155,7 @@ while (fivesCounter < 3) {
     if (randNum1 === 5) {
         fivesCounter++;
     }
-}
+} while (fivesCounter < 3)
 console.log(inside1);
 console.log(outside1);
 
@@ -167,7 +167,7 @@ let outside2 = 0;
 let fivesCounter1 = 0;
 let lastNum;
 let lastNumToLast = false;
-while (fivesCounter1 < 3) {
+while (fivesCounter1 < 1) {
     randNum2 = rand(5, 10);
     console.log(randNum2);
     inside2++;
@@ -195,13 +195,11 @@ let sumaKazys = 0;
 let randNum3;
 let randNum4;
 suma = true;
-while (suma) {
+do {
     randNum3 = rand(10, 20);
     randNum4 = rand(5, 25);
     sumaPetras += randNum3;
     sumaKazys += randNum4;
-    console.log(sumaPetras);
-    console.log(sumaKazys);
     if (randNum3 > randNum4) {
         console.log(`Partija laimejo Petras su ${randNum3}, jo tasku suma ${sumaPetras}. Kazio tasku suma ${sumaKazys}`);
     } else if (randNum4 > randNum3) {
@@ -212,11 +210,20 @@ while (suma) {
     if (sumaPetras >= 222 || sumaKazys >= 222) {
         suma = false;
     }
-}
+} while (suma)
 if (sumaPetras >= 222 && sumaKazys < 222) {
     console.log(`Petras laimejo zaidima.`);
-} else if (sumaKazys >= 222 && sumaKazys < 222) {
+} else if (sumaKazys >= 222 && sumaPetras < 222) {
     console.log(`Kazys laimejo zaidima.`);
 } else if (sumaPetras >= 222 && sumaKazys >= 222) {
     console.log(`Lygiosios`);
 }
+
+
+console.log('=====================================');
+// codewars uzdavinys Stanton measure
+function stantonMeasure(arr){
+    return arr.filter(el=> el === (arr.filter(e => e === 1).length) ).length
+  }
+let farray = [1, 4, 3, 2, 1, 2, 3, 2];
+console.log(stantonMeasure(farray));
