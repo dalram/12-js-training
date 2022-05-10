@@ -167,19 +167,20 @@ let outside2 = 0;
 let fivesCounter1 = 0;
 let lastNum;
 let lastNumToLast = false;
-while (fivesCounter1 < 1) {
+ do {
     randNum2 = rand(5, 10);
     console.log(randNum2);
     inside2++;
     for (let i = 0; i < randNum2; i++) {
         outside2++;
     }
-    if (randNum2 === 5 && lastNum === 5) {
+    if (randNum2 === 5) {
         fivesCounter1++;
-    } 
-    lastNum = randNum2;
+    } else {
+        fivesCounter1 = 0;
+    }
     
-}
+} while (fivesCounter1 < 3)
 
 console.log('=====================================');
 console.log(inside2);
@@ -188,42 +189,42 @@ console.log(outside2);
 
 
 
-console.log('=====================================');
-// 10
-let sumaPetras = 0;
-let sumaKazys = 0;
-let randNum3;
-let randNum4;
-suma = true;
-do {
-    randNum3 = rand(10, 20);
-    randNum4 = rand(5, 25);
-    sumaPetras += randNum3;
-    sumaKazys += randNum4;
-    if (randNum3 > randNum4) {
-        console.log(`Partija laimejo Petras su ${randNum3}, jo tasku suma ${sumaPetras}. Kazio tasku suma ${sumaKazys}`);
-    } else if (randNum4 > randNum3) {
-        console.log(`Partija laimejo Kazys su ${randNum4}, jo tasku suma ${sumaKazys}. Petro tasku suma ${sumaPetras}`); 
-    } else {
-        console.log(`Partija baigesi lygiosiomis ${randNum3}, ${randNum4}. Petro tasku suma ${sumaPetras}, Kazio tasku suma ${sumaKazys}`);
-    }
-    if (sumaPetras >= 222 || sumaKazys >= 222) {
-        suma = false;
-    }
-} while (suma)
-if (sumaPetras >= 222 && sumaKazys < 222) {
-    console.log(`Petras laimejo zaidima.`);
-} else if (sumaKazys >= 222 && sumaPetras < 222) {
-    console.log(`Kazys laimejo zaidima.`);
-} else if (sumaPetras >= 222 && sumaKazys >= 222) {
-    console.log(`Lygiosios`);
-}
+// console.log('=====================================');
+// // 10
+// let sumaPetras = 0;
+// let sumaKazys = 0;
+// let randNum3;
+// let randNum4;
+// suma = true;
+// do {
+//     randNum3 = rand(10, 20);
+//     randNum4 = rand(5, 25);
+//     sumaPetras += randNum3;
+//     sumaKazys += randNum4;
+//     if (randNum3 > randNum4) {
+//         console.log(`Partija laimejo Petras su ${randNum3}, jo tasku suma ${sumaPetras}. Kazio tasku suma ${sumaKazys}`);
+//     } else if (randNum4 > randNum3) {
+//         console.log(`Partija laimejo Kazys su ${randNum4}, jo tasku suma ${sumaKazys}. Petro tasku suma ${sumaPetras}`); 
+//     } else {
+//         console.log(`Partija baigesi lygiosiomis ${randNum3}, ${randNum4}. Petro tasku suma ${sumaPetras}, Kazio tasku suma ${sumaKazys}`);
+//     }
+//     if (sumaPetras >= 222 || sumaKazys >= 222) {
+//         suma = false;
+//     }
+// } while (suma)
+// if (sumaPetras >= 222 && sumaKazys < 222) {
+//     console.log(`Petras laimejo zaidima.`);
+// } else if (sumaKazys >= 222 && sumaPetras < 222) {
+//     console.log(`Kazys laimejo zaidima.`);
+// } else if (sumaPetras >= 222 && sumaKazys >= 222) {
+//     console.log(`Lygiosios`);
+// }
 
 
-console.log('=====================================');
-// codewars uzdavinys Stanton measure
-function stantonMeasure(arr){
-    return arr.filter(el=> el === (arr.filter(e => e === 1).length) ).length
-  }
-let farray = [1, 4, 3, 2, 1, 2, 3, 2];
-console.log(stantonMeasure(farray));
+// console.log('=====================================');
+// // codewars uzdavinys Stanton measure
+// function stantonMeasure(arr){
+//     return arr.filter(el=> el === (arr.filter(e => e === 1).length) ).length
+//   }
+// let farray = [1, 4, 3, 2, 1, 2, 3, 2];
+// console.log(stantonMeasure(farray));
