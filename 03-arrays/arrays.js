@@ -189,12 +189,51 @@ console.log(generuojamasMasyvas.length);
 
  // 7 Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
 console.log('===============================');
-console.log(pirmasMasyvas);
-console.log(antrasMasyvas);
+// console.log(pirmasMasyvas);
+// console.log(antrasMasyvas);
 const besikartojantys = [];
 for (let i = 0; i < pirmasMasyvas.length; i++) {
-
+    let number = pirmasMasyvas[i];
+    let checkIndex = antrasMasyvas.findIndex(element => element === number);
+    if (checkIndex > -1) {
+        besikartojantys.push(number);
+    }
 }
 console.log(besikartojantys);
+console.log(besikartojantys.length);
 
+console.log('===============================');
+
+const besikartojantys1 = [];
+for (let i = 0; i < pirmasMasyvas.length; i++) {
+    let number = pirmasMasyvas[i];
+    for (let k = 0; k < antrasMasyvas.length; k++) {
+        if (number === antrasMasyvas[k]) {
+            besikartojantys1.push(number);
+            break;
+        }
+    }
+}
+console.log(besikartojantys1);
+console.log(besikartojantys1.length);
+
+// 8 Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 6 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo.
+const array1 = [];
+let indexai = pirmasMasyvas[rand(0, 99)];
+for (let i = 0; i < indexai; i++) {
+    array1.push(antrasMasyvas[rand(0, 99)]);
+}
+console.log(array1);
+console.log(array1.length);
+
+
+// 9 Sugeneruokite 10 skaičių masyvą pagal taisyklę: Du pirmi skaičiai- atsitiktiniai nuo 5 iki 25. Trečias, pirmo ir antro suma. Ketvirtas- antro ir trečio suma. Penktas trečio ir ketvirto suma ir t.t.
+console.log('===============================');
+const naujasMasyvas = [rand(0, 25), rand(0, 25)];
+
+for (let i = 2; i < 10; i++) {
+    naujasMasyvas.push(naujasMasyvas[i - 2] + naujasMasyvas[i - 1]);
+}
+console.log(naujasMasyvas);
+console.log(naujasMasyvas.length);
 
