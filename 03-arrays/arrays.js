@@ -43,7 +43,7 @@ for (let i = 0; i < masyvas.length; i++) {
 console.log('===============================');
 console.log(poriniuSuma);
 
-// 2d
+// 2d Sukurkite naują masyvą, kurio reikšmės yra 1 uždavinio masyvo reikšmes minus tos reikšmės indeksas;
 const masyvas1 = [];
 for (let i = 0; i < masyvas.length; i++) {
     masyvas1.push(masyvas[i] - i)
@@ -115,9 +115,9 @@ for (let i = 0; i < raidziuMasyvas.length; i++) {
     masyvuSuma.push(raidziuMasyvas[i] + raidziuMasyvas1[i] + raidziuMasyvas2[i] );
 }
 console.log(masyvuSuma);
-const uniqueItems = [...new Set(masyvuSuma)]; //budas rasti originalias reiksmes masyve.
+const uniqueItems = [...new Set(masyvuSuma)]; //budas rasti unikalias reiksmes masyve.
 console.log(uniqueItems);
-console.log(uniqueItems.length); // originaliu kombo skaicius???
+console.log(uniqueItems.length); // unikaliu kombo skaicius???
 // let arOriginali = true;
 // let originalCount = 0;
 // for (let i = 0; i < masyvuSuma.length; i++) {
@@ -138,13 +138,49 @@ console.log(uniqueItems.length); // originaliu kombo skaicius???
 // console.log(originalCount);
 
 
-// 5
+// 5 Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
 
+let iterationAmount = 100;
 const pirmasMasyvas = [];
 const antrasMasyvas = [];
-for (let i = 0; i < 100; i++) {
-    pirmasMasyvas.push(rand(100, 999));
-    antrasMasyvas.push(rand(100, 999));
+for (let i = 0; i < iterationAmount; i++) {
+    let number1 = rand(100, 999);
+    
+    let checkIndex = pirmasMasyvas.findIndex(element => element === number1);
+    if (checkIndex === -1) {// grazins arba -1 arba indexa kuris yra. Patikrina reiksmes ar jos kartojasi array.
+        pirmasMasyvas.push(number1);
+    } else {
+        iterationAmount++;
+    }
 }
+
 console.log(pirmasMasyvas);
-console.log(antrasMasyvas);
+console.log(pirmasMasyvas.length);
+// console.log(antrasMasyvas);
+
+
+// // 6 Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame 6 uždavinio masyve.
+// console.log('===============================');
+// const generuojamasMasyvas = [];
+// for (let i = 0; i < 10; i++) {
+//     generuojamasMasyvas.push(pirmasMasyvas[rand(0, 99)])
+// }
+// console.log(pirmasMasyvas);
+// console.log(generuojamasMasyvas);
+
+
+// // 7 Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
+// console.log('===============================');
+// console.log(pirmasMasyvas);
+// console.log(antrasMasyvas);
+// const besikartojantys = [];
+// let count = 0;
+// do {
+//     for (let i = 0; i < pirmasMasyvas.length; i++) {
+//         if (pirmasMasyvas[count] === antrasMasyvas[i]) {
+//             besikartojantys.push[pirmasMasyvas[count]];
+//         }
+//     }
+//     count++;
+// } while (count < pirmasMasyvas.length)
+// console.log(besikartojantys);
