@@ -1,3 +1,4 @@
+
 console.log('===============================');
 function rand(min, max) {
     min = Math.ceil(min);
@@ -20,7 +21,7 @@ for (let i = 0; i < masyvas.length; i++) {
 }
 console.log(countMore10);
 
-// 2b
+// 2b Raskite didžiausią masyvo reikšmę ir jos indeksą;
 console.log(Math.max(...masyvas));
 let biggestNumber = masyvas[0];
 for (let i = 0; i < masyvas.length; i++) {
@@ -30,8 +31,8 @@ for (let i = 0; i < masyvas.length; i++) {
 }
 console.log('===============================');
 console.log(biggestNumber);
+console.log(masyvas.findIndex(e => e === biggestNumber));
 console.log(masyvas);
-console.log('===============================');
 // 2c
 let poriniuSuma = 0;
 for (let i = 0; i < masyvas.length; i++) {
@@ -109,7 +110,6 @@ console.log(raidziuMasyvas);
 console.log(raidziuMasyvas.length);
 
 // 4
-
 const masyvuSuma = [];
 for (let i = 0; i < raidziuMasyvas.length; i++) {
     masyvuSuma.push(raidziuMasyvas[i] + raidziuMasyvas1[i] + raidziuMasyvas2[i] );
@@ -142,7 +142,7 @@ console.log(uniqueItems.length); // unikaliu kombo skaicius???
 
 let iterationAmount = 100;
 const pirmasMasyvas = [];
-const antrasMasyvas = [];
+
 for (let i = 0; i < iterationAmount; i++) {
     let number1 = rand(100, 999);
     
@@ -156,31 +156,45 @@ for (let i = 0; i < iterationAmount; i++) {
 
 console.log(pirmasMasyvas);
 console.log(pirmasMasyvas.length);
-// console.log(antrasMasyvas);
+
+const antrasMasyvas = [];
+iterationAmount = 100;
+for (let i = 0; i < iterationAmount; i++) {
+    let number = rand(100, 999);
+    
+    let checkIndex = antrasMasyvas.findIndex(element => element === number);
+    if (checkIndex === -1) {// grazins arba -1 arba indexa kuris yra. Patikrina reiksmes ar jos kartojasi array.
+        antrasMasyvas.push(number);
+    } else {
+        iterationAmount++;
+    }
+}
+console.log(antrasMasyvas);
+console.log(antrasMasyvas.length);
 
 
-// // 6 Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame 6 uždavinio masyve.
-// console.log('===============================');
-// const generuojamasMasyvas = [];
-// for (let i = 0; i < 10; i++) {
-//     generuojamasMasyvas.push(pirmasMasyvas[rand(0, 99)])
-// }
-// console.log(pirmasMasyvas);
-// console.log(generuojamasMasyvas);
+// 6 Sugeneruokite masyvą, kuris būtų sudarytas iš reikšmių, kurios yra pirmame 6 uždavinio masyve, bet nėra antrame 6 uždavinio masyve.
+console.log('===============================');
+const generuojamasMasyvas = [];
+for (let i = 0; i < pirmasMasyvas.length; i++) {
+    let number = pirmasMasyvas[rand(0, 99)];
+    let checkIndex = antrasMasyvas.findIndex(element => element === number);
+    if (checkIndex === -1) {
+        generuojamasMasyvas.push(number);
+    }
+}
+console.log(generuojamasMasyvas);
+console.log(generuojamasMasyvas.length);
 
 
-// // 7 Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
-// console.log('===============================');
-// console.log(pirmasMasyvas);
-// console.log(antrasMasyvas);
-// const besikartojantys = [];
-// let count = 0;
-// do {
-//     for (let i = 0; i < pirmasMasyvas.length; i++) {
-//         if (pirmasMasyvas[count] === antrasMasyvas[i]) {
-//             besikartojantys.push[pirmasMasyvas[count]];
-//         }
-//     }
-//     count++;
-// } while (count < pirmasMasyvas.length)
-// console.log(besikartojantys);
+ // 7 Sugeneruokite masyvą iš elementų, kurie kartojasi abiejuose 6 uždavinio masyvuose.
+console.log('===============================');
+console.log(pirmasMasyvas);
+console.log(antrasMasyvas);
+const besikartojantys = [];
+for (let i = 0; i < pirmasMasyvas.length; i++) {
+
+}
+console.log(besikartojantys);
+
+
