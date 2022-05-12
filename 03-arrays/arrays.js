@@ -1,3 +1,5 @@
+//  uzdaviniai
+// https://docs.google.com/document/d/1_2C-SA2fhKduqCZ0YsZyZHXpFEb4lmjyIi8a875yc04/edit
 
 console.log('===============================');
 function rand(min, max) {

@@ -1,3 +1,6 @@
+// https://docs.google.com/document/d/1q1E8LNDrBtMSOsUQxFRW6swYC5dgKn1sq29XnapnJ9c/edit
+// uzdaviniai
+
 console.log('===============================');
 function rand(min, max) {
     min = Math.ceil(min);
