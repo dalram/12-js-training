@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./03-arrays/wallet.js",
+    "dev": "nodemon ./03-arrays/arrays.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

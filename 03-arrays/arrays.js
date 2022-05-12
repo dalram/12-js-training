@@ -109,6 +109,7 @@ for (let i = 0; i < 200; i++) {
 console.log(raidziuMasyvas);
 console.log(raidziuMasyvas.length);
 
+
 // 4
 const masyvuSuma = [];
 for (let i = 0; i < raidziuMasyvas.length; i++) {
@@ -237,3 +238,34 @@ for (let i = 2; i < 10; i++) {
 console.log(naujasMasyvas);
 console.log(naujasMasyvas.length);
 
+
+// 3 Sugeneruokite masyvą, kurio reikšmės atsitiktinės raidės A, B, C ir D, o ilgis 200. Suskaičiuokite kiek yra kiekvienos raidės.
+
+console.log('===============================');
+const reiksmesA = raidziuMasyvas.filter(e => e === 'A');
+console.log(reiksmesA);
+console.log(reiksmesA.length);
+
+console.log(raidziuMasyvas.filter(e => e === 'B').length);
+console.log(raidziuMasyvas.filter(e => e === 'C').length);
+console.log(raidziuMasyvas.filter(e => e === 'D').length);
+console.log('===============================');
+// 4 Sugeneruokite 3 masyvus pagal 3 uždavinio sąlygą. Sudėkite masyvus, sudėdami atitinkamas reikšmes. Paskaičiuokite kiek unikalių (po vieną, nesikartojančių) reikšmių ir kiek unikalių kombinacijų gavote.
+const newUnique = []
+for (let i = 0; i < uniqueItems.length; i++) {
+    let element = uniqueItems[i];
+    let elementCount = 0;
+    for (let k = 0; k < uniqueItems.length; k++) {
+        if (uniqueItems[k] == element) {
+            elementCount++;
+        }
+    }
+    if (elementCount === 1) {
+        newUnique.push(element);
+    }
+}
+console.log(newUnique);
+console.log(newUnique.length);
+console.log('===============================');
+console.log(uniqueItems);
+console.log(uniqueItems.length);
