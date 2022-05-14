@@ -35,6 +35,13 @@ for (let i = 0; i < produktuMasyvoIlgis; i++) {
 console.log(products.length);
 const saskaituMasyvas = [];
 for (let i = 0; i < 100; i++) {
+    // for (let i = 0; i < produktuMasyvoIlgis; i++) {
+    //     produktuMasyvas.push({title: products[rand(0, 25)],
+    //                         price: decimalRand(1, 100),
+    //                         amount: rand(1, 20),
+    //                         total: function (){return this.price * this.amount},  
+    //                     });
+            
     
     saskaituMasyvas.push({number: `INV${i + 1}`,
                         products: produktuMasyvas,
@@ -44,21 +51,21 @@ for (let i = 0; i < 100; i++) {
                         vat: function(){return this.total * 0.21},
                         grandTotal: function(){return this.total + this.vat}});
     
-}
+                    }
 
 console.log(saskaituMasyvas);
 console.log(saskaituMasyvas.length);
-console.log(produktuMasyvas);
-console.log(produktuMasyvas.length);
-console.log(produktuMasyvas[0].total());
+// console.log(produktuMasyvas);
+// console.log(produktuMasyvas.length);
+// console.log(produktuMasyvas[0].total());
 
-// viso produktu masyvo suma
+// // viso produktu masyvo suma
 
-let produktuMasyvoSuma = 0;
-for (let i = 0; i < produktuMasyvas.length; i++) {
-    produktuMasyvoSuma += produktuMasyvas[i].total();
-}
-console.log(produktuMasyvoSuma);
+// let produktuMasyvoSuma = 0;
+// for (let i = 0; i < produktuMasyvas.length; i++) {
+//     produktuMasyvoSuma += produktuMasyvas[i].total();
+// }
+// console.log(produktuMasyvoSuma);
 
 
 
