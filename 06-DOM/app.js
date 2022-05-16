@@ -62,7 +62,7 @@ console.log(count);
 
 const animalDOM = document.querySelector('.animals');
 
-console.log(animalDOM.childNodes);
+
 
 // g Tagus ul apibraukite rėmeliais ir uždėkite 15px paddingą viršuje ir apačioje ir 50px paddingą kairėje ir dešinėje;
 
@@ -73,3 +73,79 @@ animalsDOM.forEach( e => {
 
 // h Suskaičiuoti kiek yra naujų gyvūnų (su klase new);
 count = 0;
+const newAnimalsDOM = document.querySelectorAll('ul > .new');
+console.log(newAnimalsDOM);
+console.log(newAnimalsDOM.length);
+
+//  i Suskaičiuoti atskirai kiek yra naujų gyvūnų kiekvienoje kategorijoje;
+console.log(animalsDOM); 
+// ar galima buvo praeiti su ciklu ir is kiekvienos kategorijos isrinkti klase new?
+const newZirafos = document.querySelectorAll('#zirafos > li.new').length;
+console.log(newZirafos);
+console.log(document.querySelectorAll('#plesrunai > li.new').length);
+console.log(document.querySelectorAll('#gyvates > li.new').length);
+console.log(document.querySelectorAll('#zoliaedziai > li.new').length);
+
+// 3
+// a Padaryti tai ką liepia mygtukai Header1 sekcijoje;
+
+document.querySelector('#h1-color').style.backgroundColor = 'green';
+document.querySelector('#h1-font').style.fontSize = '10px';
+
+// b Padaryti, kad paspaudus ant i tago jis pakeistų fonto svorį į bold;
+console.log('=======================');
+const iTagDOM = document.querySelector('i');
+iTagDOM.addEventListener('click', e => {
+    e.stopPropagation();
+    console.log(e);
+    iTagDOM.style.fontWeight = 'bold'; // kodel e parasius vietoj iTagDOM nebeveikia click boldas?
+});
+
+// c Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
+let clickCount = 0;
+const pricesDOM = document.querySelector('.prices');
+pricesDOM.addEventListener('click', e => {
+    e.stopPropagation();
+    clickCount++;
+    if (clickCount % 2 !== 0)
+        pricesDOM.style.backgroundColor = '#A5A5A5';
+    else {
+        pricesDOM.style.backgroundColor = null;
+    }
+});
+// d Padaryti, kad paspaudus ant tago su id contacts, tam tagui būtų pridėta css savybė color = orange;
+
+const contactsDOM = document.querySelector('#contacts');
+contactsDOM.addEventListener('click', e => {
+    contactsDOM.style.color = 'orange';
+});
+
+// e Padaryti taip, kad paspaudus ant padidinti, esančio tage su id contacts, tagui su id contacts būtų pridėta css savybė fontSize = 20px;
+
+const padidintiDOM = document.querySelector('#contacts > u');
+padidintiDOM.addEventListener('click', e => {
+    // e.stopPropagation(); // ar deti kiekviename eventListeneryje?
+    contactsDOM.style.fontSize = '20px';
+});
+
+// f Padaryti taip, kad paspaudus ant X, esančio tage su id contacts, pridėtos tage su id contacts savybės būtų panaikintos 
+
+const xDOM = document.querySelector('#contacts > b');
+xDOM.addEventListener('click', e => {
+    e.stopPropagation(); // kodel stopPropagation siuo atveju nuima visus style nuo div, o be jo contacts pasidarytu oranzinis?
+    contactsDOM.removeAttribute('style');
+
+});
+
+// g Padaryti tai ką liepia mygtukai Header2 sekcijoje;
+
+const colorButtonDOM = document.querySelector('#h1-color-back');
+colorButtonDOM.addEventListener('click', e => {
+    colorButtonDOM.style.backgroundColor = colorButtonDOM.style.backgroundColor == 'green' ? null : 'green';
+});
+
+const fontButtonDOM = document.querySelector('#h1-font-back');
+fontButtonDOM.addEventListener('click', e => {
+    fontButtonDOM.style.fontSize = fontButtonDOM.style.fontSize == '10px' ? null: '10px';
+});
+
