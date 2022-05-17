@@ -125,3 +125,69 @@ for (let sizeNumber = 0; sizeNumber < monsterSize; sizeNumber++) {
 
 console.log(monster);
 
+
+// 10 uzd pagal destytoja
+// Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 100. Jeigu tokio didelio masyvo (ne atskirai mažesnių) pirminių skaičių vidurkis mažesnis už 70, suraskite masyve mažiausią skaičių (nebūtinai pirminį) ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite.
+
+const prime = (a) => {
+    let count = 0;
+    for (let i = 2; i < a; i++) {
+        if (a % i === 0) {
+            count++;
+        }
+    }
+    return count;
+};
+
+
+const sqArray = [];
+
+for (let i = 0; i < 10; i++) {
+    const row = [];
+    for (let y = 0; y < 10; y++) {
+        row.push(rand(1, 100));
+    }
+    sqArray.push(row);
+}
+
+const primeSum = a => {
+    let sum = 0;
+    let count = 0;
+    a.forEach(e => e.forEach(v => {
+        if (!prime(v)) {
+            count++;
+            sum += v;
+        }
+    }));
+    return count ? sum / count : 0;
+}
+
+const findMin = a => {
+    let min = a[0][0];
+    let coord = [0, 0];
+    a.forEach((r, ri) => r.forEach((v, ci) => {
+        if (v < min) {
+            min = v;
+            coord = [ri, ci];
+        }
+    }));
+    return coord;
+}
+
+console.table(sqArray);
+
+console.log(findMin(sqArray));
+
+let s = 1000;
+
+while(primeSum(sqArray) < 70){
+    if(--s === 0) {
+        console.log('BR')
+        break;
+    }
+    const [x, y] = findMin(sqArray);
+    sqArray[x][y] += 3;
+
+}
+
+console.table(sqArray);
