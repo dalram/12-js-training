@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./06-DOM/app.js",
+    "dev": "nodemon ./04-functions/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

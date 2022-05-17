@@ -42,6 +42,7 @@ for (let i = 0; i < 100; i++) {
 }
 console.log(masyvas)
 console.log(masyvas.sort((a, b) => sveikujuDalyba(b) - sveikujuDalyba(a)));
+masyvas.sort()
 masyvas.sort() // nuo didziausio iki maziausio
 console.log('=======================');
 console.log(sveikujuDalyba(72));
@@ -94,3 +95,33 @@ console.log(arrayGen());
 for (let i = 0; i < times; i++) {
 
 }
+
+
+
+// 7 sprendimas pagal destytoja
+
+const monsterSize = rand(10, 30);
+
+const makeNiceArray = () => {
+    const array = [];
+    const size = rand(10, 20);
+    for (let i = 0; i < size; i++) {
+        array.push(rand(0, 10));
+    }
+    return array;
+}
+let monster = [];
+for (let sizeNumber = 0; sizeNumber < monsterSize; sizeNumber++) {
+    const monsterPart = makeNiceArray();
+
+    if (!sizeNumber) {
+        monsterPart[monsterPart.length - 1 ] = 0;
+    } else {
+        monsterPart[monsterPart.length - 1] = monster;
+        
+    }
+    monster = monsterPart;
+};
+
+console.log(monster);
+
