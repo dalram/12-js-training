@@ -149,3 +149,44 @@ fontButtonDOM.addEventListener('click', e => {
     fontButtonDOM.style.fontSize = fontButtonDOM.style.fontSize == '10px' ? null: '10px';
 });
 
+// 4
+//a Padaryti, kad dukartus paspaudus ant naujų gyvūnų jie nusispalvintu raudonai
+newAnimalsDOM.forEach(li => {
+    li.addEventListener('dblclick', e => {
+        li.style.color = 'red';
+    });
+});
+
+// b Padaryti, kad paspaudus ant gyvūno jis būtų atvaizduojamas 130% didesniu fonto dydžiu. “PATINKA” tas neturi galioti.
+const visuGyvunuDOM = document.querySelectorAll('.animals > ul > li');
+console.log(visuGyvunuDOM);
+visuGyvunuDOM.forEach(animals => {
+    if (animals.className !== 'like-button') {
+        animals.addEventListener('click', e => {
+            animals.style.fontSize = '130%';
+        });
+    }
+});
+
+// c Padaryti, kad paspaudus ant “PATINKA”, atitinkamai (tėvinei) sekcijai būtų priskirta klasė like;
+visuGyvunuDOM.forEach(animals => {
+    if (animals.className === 'like-button') {
+        animals.addEventListener('click', e => {
+            animals.parentElement.classList.add('like');
+        });
+    }
+});
+
+// 5 Dinaminis elementų kūrimas (su createElement)
+
+// a Dinamiškai su JS pridėti naują kainą “Senjorai tik: 1.99 eur”;
+
+const senjoruKaina = document.createElement('h2');
+senjoruKaina.innerHTML = 'Senjorai tik: 1.99 eur';
+senjoruKaina.classList.add('price-tag');
+
+
+pricesDOM.appendChild(senjoruKaina);
+
+
+// b
