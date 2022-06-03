@@ -41,9 +41,7 @@ for (let i = 0; i < 100; i++) {
     masyvas.push(number);
 }
 console.log(masyvas)
-console.log(masyvas.sort((a, b) => sveikujuDalyba(b) - sveikujuDalyba(a)));
-masyvas.sort()
-masyvas.sort() // nuo didziausio iki maziausio
+console.log(masyvas.sort((a, b) => sveikujuDalyba(b) - sveikujuDalyba(a))); // nuo didziausio iki maziausio
 console.log('=======================');
 console.log(sveikujuDalyba(72));
 console.log(sveikujuDalyba(60));
@@ -191,3 +189,50 @@ while(primeSum(sqArray) < 70){
 }
 
 console.table(sqArray);
+
+
+// 9 destytojo sprendimas
+const whiteCat = [rand(1, 33), rand(1, 33), rand(1, 33), rand(1, 33)];
+
+const yesOrNo = (a, c = 3) => { // c = 3 defaultine reiksme, jei reiksme butu nenurodyta
+    for (let i = 0; i < c; i++) {
+        if(prime(a.slice(-c)[i])) {
+            return true;
+        }
+    }
+    return false;
+    
+}
+while (yesOrNo(whiteCat, 4)) {
+    whiteCat.push(rand(1, 33));
+}
+yesOrNo(whiteCat);
+console.log(whiteCat);
+
+console.log('==================================')
+
+let data=7;
+while(data>=0) {
+  if(data<=5) {
+    data--;
+    continue;
+  }
+  console.log(data);
+  data--;
+}
+
+let g = "Programavimas";
+console.log(g.charAt(4));
+
+let f="MokymasisMokykloje";
+console.log(f.indexOf('M'))
+
+
+const masyvas4 = [4, 7, 1, 4];
+console.log(masyvas4.pop());
+console.log(masyvas4);
+
+const arr1 = [5, 4, 3, 2, 1];
+    arr.forEach((x,y) => {
+        console.log(y)
+    });

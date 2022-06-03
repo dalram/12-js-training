@@ -271,3 +271,29 @@ console.log(newUnique.length);
 console.log('===============================');
 console.log(uniqueItems);
 console.log(uniqueItems.length);
+
+
+// 8 pagal destytoja
+// Sugeneruokite masyvą, kurio indeksus sudarytų pirmo 5 uždavinio masyvo reikšmės, o jo reikšmės iš būtų antrojo masyvo.
+const longSet1 = new Set(); // sukuriam su Set() unikaliu reiksmiu masyva.
+do {
+    longSet1.add(rand(100, 999));
+} while (longSet1.size < 100)
+
+const longArray1 =[...longSet1];
+console.log(longArray1);
+
+const longSet2 = new Set(); // sukuriam su Set() unikaliu reiksmiu masyva.
+do {
+    longSet2.add(rand(100, 999));
+} while (longSet2.size < 100)
+
+const longArray2 =[...longSet2];
+console.log(longArray2);
+const freakArray = [];
+
+longArray1.forEach((v, i) => {
+    freakArray[v] = longArray2[i];
+})
+
+console.table(freakArray);

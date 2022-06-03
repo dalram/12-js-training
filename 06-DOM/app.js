@@ -98,7 +98,7 @@ const iTagDOM = document.querySelector('i');
 iTagDOM.addEventListener('click', e => {
     e.stopPropagation();
     console.log(e);
-    iTagDOM.style.fontWeight = 'bold'; // kodel e parasius vietoj iTagDOM nebeveikia click boldas?
+    iTagDOM.style.fontWeight = 'bold'; 
 });
 
 // c Padaryti, kad paspaudus ant tago su klase prices, backgroundas pasikeistų į pilką, o paspaudus dar kartą vėl grįžtu į baltą spalvą;
@@ -182,7 +182,7 @@ visuGyvunuDOM.forEach(animals => {
 // a Dinamiškai su JS pridėti naują kainą “Senjorai tik: 1.99 eur”;
 
 const senjoruKaina = document.createElement('h2');
-senjoruKaina.innerHTML = 'Senjorai tik: 1.99 eur';
+senjoruKaina.innerText = 'Senjorai tik: 1.99 eur';
 senjoruKaina.classList.add('price-tag');
 
 
@@ -190,3 +190,11 @@ pricesDOM.appendChild(senjoruKaina);
 
 
 // b
+
+
+console.log(document.getElementsByClassName('new'));
+console.log(document.getElementsByClassName('new').length);
+
+const el = document.createElement("span"); 
+el.className = "red"; 
+console.log(el)
