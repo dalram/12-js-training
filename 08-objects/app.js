@@ -142,4 +142,141 @@ glass1.stiklinejeYra();
 glass2.stiklinejeYra();
 console.log([glass, glass1, glass2]);
 
+
+function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 // 9. Sukurti klasę Grybas. Sukurti klasę Krepsys. Krepsys turi savybę dydis,kuriai konstruktoriuje yra priskiriama reikšmė 500 ir savybę prikrauta (kuri pradžioje lygi 0). Grybas turi tris savybes, kurios taip pat yra paskaičiuojamos konstruktoriuje: valgomas, sukirmijes, svoris. Kuriant Grybo objektą jo savybės turi būti atsitiktinai (rand funkcija) priskiriamos taip: valgomas- true arba false, sukirmijes- true arba false ir svoris- nuo 5 iki 45. Eiti grybauti, t.y. Kurti naujus Grybas objektus, jeigu nesukirmijęs ir valgomas dėti į Krepsi objektą, t.y. Vykdyti deti(grybas) metodą kol bus pririnktas pilnas krepšys nesukirmijusių ir valgomų grybų (gali būti truputį daugiau nei dydis).
+
+
+class Grybas {
+    constructor (valgomas, sukirmijes, svoris) {
+        this.valgomas = !rand(0, 1);
+        this.sukirmijes = !rand(0, 1);
+        this.svoris = rand(5, 45);
+    }
+}
+
+
+class Krepsys {
+    constructor(dydis, prikrauta) {
+        this.dydis = 500;
+        this.prikrauta = 0;
+    }
+
+    deti(grybas) {
+        if(grybas.valgomas && !grybas.sukirmijes) {
+            this.prikrauta += grybas.svoris;
+        }
+        return this.prikrauta < this.dydis;
+    }
+}
+// const grybas1 = new Grybas;
+// console.log(grybas1.valgomas);
+const krepsys = new Krepsys();
+let count = 0;
+while (krepsys.deti(new Grybas())){
+    console.log('grybauju '+ count++);
+}; // gamina true visada kol krepsys nevirsija 500 dydzio
+console.log(krepsys);
+
+
+
+
+
+// 4. (STATIC) Sukurti metodą keleiviuSkaiciusVisuoseTroleibusuose(), kuris rodytų bendrą keleivių skaičių visuose Troleibusas objektuose. Bendram kelevių skaičiaus skaičiavimui sukurkite statinį metodą bendrasKeleiviuSkaicius(keleiviuSkaicius), kuris pridėtų arba atimtų keleivius iš statinės savybės visiKeleiviai (kurioje yra įrašytas bendras keleivių skaičius). Taip pat atitinkamai modifikuokite metodus ilipa(keleiviuSkaicius) ir islipa(keleiviuSkaicius).
+
+class Trolley1 {
+    static TrolleyReg = [];
+    static keleiviuSkaiciusVisuoseTroleibusuose() {
+        const keleiviuSuma = this.TrolleyReg.reduce((total, item) => total + item.keleiviuSkaicius, 0);
+        return console.log(keleiviuSuma);
+    }
+
+    static visiTroley(Trolley) {
+        this.TrolleyReg.push(Trolley);
+    }
+
+    // static bendrasKeleiviuSkaicius(keleiviuSkaicius) {
+    //     this.keleiviuSkaicius = this.keleiviuSkaicius + keleiviuSkaicius;
+    // }
+    constructor(keleiviuSkaicius = 0){
+        this.keleiviuSkaicius = keleiviuSkaicius;
+        this.constructor.visiTroley(this);
+    }
+    in(count) {
+        if (count < 1) {
+            return this.keleiviuSkaicius;
+        }
+        return this.keleiviuSkaicius+= count;
+    }
+    out(count) {
+        if (count > this.keleiviuSkaicius) {
+            return console.log(`Tiek zmoniu troleibuse nera, gali islipti tik ${this.keleiviuSkaicius} zmoniu`);
+        } else if (count < 1) {
+            return console.log(`Nurodytas netinkamas islipanciu zmoniu kiekis`);
+        }
+        return this.keleiviuSkaicius -= count;
+    }
+    rolling() {
+        return console.log(`Troleibuse vaziuoja ${this.keleiviuSkaicius} keleiviu.`);
+    }
+}
+
+
+const tr1 = new Trolley1(50);
+const tr2 = new Trolley1(50);
+const tr3 = new Trolley1(50);
+tr1.out(15);
+tr3.out(25);
+console.log(Trolley1.TrolleyReg);
+Trolley1.keleiviuSkaiciusVisuoseTroleibusuose();
+
+
+
+//5. (MAP) Sukurti klasę PirkiniuKrepselis. Konstruktoriuje sukurti savybę turinys, kuri yra Map tipo objektas. Sukurti tris metodus: idetiSureli(kiekis), idetiPieno(kiekis), idetiDuonos(kiekis). Parašyti metodą krepselioTurinys(), kuris į konsolę išvestų produktų sąrašą (turinys kintamąjį). Pridėti tuos pačius produktus galima po kelis kartus, tokiu atveju produktų kiekis turėtų sumuotis.
+
+class PirkiniuKrepselis {
+    constructor(turinys) {
+        this.turinys = new Map();
+    }
+    idetiSureliu(kiekis) {
+        let sureliaiCount = this.turinys.get('Sureliai');
+        console.log(sureliaiCount);
+        sureliaiCount+= kiekis;
+        return this.turinys.set('Sureliai', sureliaiCount);
+    }
+    idetiPieno(kiekis) {
+        let pienasCount = 0;
+        pienasCount+= kiekis;
+        return this.turinys.set('Pienas', pienasCount);
+    }
+    idetiDuonos(kiekis) {
+        let duonosCount = 0;
+        duonosCount+= kiekis;
+        return this.turinys.set('Duonos', duonosCount);
+    }
+}
+const pirkiniai = new PirkiniuKrepselis;
+pirkiniai.idetiSureliu(10);
+pirkiniai.idetiPieno(10);
+pirkiniai.idetiDuonos(10);
+pirkiniai.idetiSureliu(15);
+pirkiniai.idetiPieno(13);
+pirkiniai.idetiDuonos(11);
+console.log(pirkiniai);
+const map = new Map();
+
+map.set('Murka', 5);
+map.set('Pilkis', 8);
+map.set('Pukis', 4);
+
+map.set('Pilkis', 9);
+
+console.log(map.get('Pilkis'));
+// map.delete('Pilkis');
+console.log(map);
+const masmap = [...map];
+console.log([...map]);
