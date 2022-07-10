@@ -89,8 +89,16 @@ console.log(document.querySelectorAll('#zoliaedziai > li.new').length);
 // 3
 // a Padaryti tai ką liepia mygtukai Header1 sekcijoje;
 
-document.querySelector('#h1-color').style.backgroundColor = 'green';
-document.querySelector('#h1-font').style.fontSize = '10px';
+const h1Header = document.querySelector('#h1-color');
+h1Header.addEventListener('click', e => {
+    e.stopPropagation();
+    document.querySelector('.main, .center').style.color === 'green' ? document.querySelector('.main, .center').style.color = 'black': document.querySelector('.main, .center').style.color = 'green';
+})
+document.querySelector('#h1-font').addEventListener('click', e => {
+    document.querySelector('.main, .center').style.fontSize === '10px' ? document.querySelector('.main, .center').style.fontSize = '25px' : document.querySelector('.main, .center').style.fontSize = '10px';
+
+})
+
 
 // b Padaryti, kad paspaudus ant i tago jis pakeistų fonto svorį į bold;
 console.log('=======================');
